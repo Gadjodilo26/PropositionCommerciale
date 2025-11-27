@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proposition de gestion de dépôt — FRIGO EST | RMS (micro-entreprise)</title>
+  <meta name="description"
+    content="Proposition B2B de gestion de dépôt pour FRIGO EST par RMS (micro-entreprise) : ouverture/fermeture, propreté véhicules, sanitaires & espaces verts, astreinte, déchets & consommables." />
+
+  <style>
+    /* ========= Design tokens ========= */
+    :root{
+      --blue-deep:#0B3A5A; --blue-ice:#76C7E8; --white:#fff; --text:#2B2B2B;
+      --muted:#f3f7fb; --border:#dbe7f3; --focus:#0b73ff;
+      --shadow:0 10px 30px rgba(11,58,90,.18);
+      --radius:14px; --radius-sm:10px; --radius-lg:20px;
+      --maxw:1120px;
+    }
+
+    /* ========= Base ========= */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text);
+      background:linear-gradient(180deg,#f8fbff 0%,#f3f8fc 100%);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    img,svg{max-width:100%;display:block}
+    a{color:var(--blue-deep);text-decoration:none}
+    a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:3px solid var(--focus);outline-offset:2px}
+    .wrap{max-width:var(--maxw);margin-inline:auto;padding:0 20px}
+    .grid{display:grid;gap:18px}
+    @media (min-width:768px){
+      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+      .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    }
+
+    /* ========= Header / Hero ========= */
+    header{
+      background:
+        radial-gradient(1200px 600px at 80% -100%, rgba(255,255,255,.25), transparent 70%),
+        linear-gradient(135deg, var(--blue-deep) 0%, #0E4A73 38%, var(--blue-ice) 100%);
+      color:var(--white); position:relative; overflow:hidden;
+    }
+    .hero{display:grid;gap:24px;align-items:center;padding:40px 0 56px}
+    @media (min-width:768px){.hero{grid-template-columns:1fr 1.1fr;padding:72px 0 90px}}
+    .brand{display:flex;align-items:center;gap:14px;padding:16px 0 6px}
+    .brand h1{font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin:0;opacity:.9}
+    .logo{width:54px;height:54px;flex:0 0 54px;filter:drop-shadow(0 6px 24px rgba(0,0,0,.25))}
+    .hero-title{margin:8px 0 10px;font-weight:750;line-height:1.15;font-size:clamp(28px,5vw,44px)}
+    .hero-sub{margin:0 0 18px;font-size:clamp(16px,2.5vw,18px);opacity:.95}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .btn{background:var(--white);color:var(--blue-deep);border:none;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer;box-shadow:var(--shadow);transition:transform .12s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(180deg,#ffffff,#e8f6ff);color:#06324e}
+    .btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6);box-shadow:none}
+    .hero-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);backdrop-filter:saturate(150%) blur(6px);padding:18px;border-radius:var(--radius)}
+    .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);color:#fff;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap}
+
+    /* ========= Sections ========= */
+    main section{padding:34px 0}
+    section .title{font-size:22px;margin:0 0 12px;line-height:1.25;color:#0a2b44}
+    .muted{color:#3b5164}
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:4px 0 8px;font-size:18px}
+    .keyline{height:4px;width:44px;background:linear-gradient(90deg,var(--blue-ice),#9ad9f2);border-radius:999px;margin:8px 0 14px}
+
+    ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+    ul.clean li{padding-left:28px;position:relative}
+    ul.clean li::before{content:"";position:absolute;left:0;top:.35em;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#fff 0 30%,var(--blue-ice) 31% 100%);outline:2px solid #bfe7f7}
+
+    /* Horaire band */
+    .band{background:linear-gradient(90deg,#e9f6fe,#f5fbff);border:1px solid var(--border);border-left:6px solid var(--blue-ice);border-radius:var(--radius);padding:16px;display:grid;gap:10px;align-items:center}
+    .slots{display:flex;flex-wrap:wrap;gap:10px}
+    .slot{background:#fff;border:1px dashed #b8d7eb;padding:8px 10px;border-radius:999px;font-weight:700}
+
+    /* Tarifs table */
+    .table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .table caption{caption-side:top;text-align:left;padding:12px 14px;font-weight:700;color:#0a2b44}
+    .table th,.table td{padding:14px;text-align:left}
+    .table thead th{background:linear-gradient(180deg,#f7fbff,#eef6fc);border-bottom:1px solid var(--border);font-size:14px;letter-spacing:.02em;text-transform:uppercase}
+    .table tbody tr:not(:last-child) td{border-bottom:1px solid #edf3f8}
+    .table tfoot td{background:#fbfeff;font-weight:700}
+
+    /* Estimation widget */
+    .estimation{display:grid;gap:16px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .estimation .row{display:grid;gap:10px}
+    @media (min-width:768px){.estimation .row{grid-template-columns:repeat(3,1fr)}}
+    .field{display:grid;gap:6px}
+    .field label{font-weight:600}
+    .field input[type="number"]{appearance:textfield;width:100%;padding:10px 12px;border:1px solid #cfe1ee;border-radius:10px;background:#fbfeff}
+    .pill{background:#0b3a5a;color:#fff;font-weight:800;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px}
+    .note{font-size:13px;color:#466178}
+    .live{margin-top:6px;font-weight:700}
+    .total{font-size:clamp(22px,3.6vw,28px);font-weight:800;color:#073b5f}
+
+    /* Contact */
+    .contact{background:radial-gradient(900px 400px at 100% 0%,#eaf7ff,transparent 60%),#f7fbff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .contact form{display:grid;gap:12px}
+    .contact input,.contact textarea{width:100%;padding:12px 14px;border:1px solid #cfe1ee;border-radius:10px;background:#fff}
+    .small{font-size:13px;opacity:.9}
+
+    /* Footer */
+    footer{padding:26px 0 50px;color:#345068}
+    .foot{border-top:1px solid var(--border);padding-top:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+
+    /* Hover states */
+    .btn:hover{box-shadow:0 12px 34px rgba(11,58,90,.28)}
+
+    /* Print */
+    @media print{
+      @page{margin:16mm}
+      body{background:#fff}
+      header{background:#fff;color:#000;border-bottom:2px solid #000}
+      .hero-card,.btn,.cta-row,.hero-badges{display:none!important}
+      a::after{content:" (" attr(href) ")";font-size:12px}
+      .card,.band,.table,.estimation,.contact{box-shadow:none;border-color:#000}
+      .foot{border-top-color:#000}
+    }
+  </style>
+
+  <!-- Estimation mensuelle (déférée pour ne pas bloquer le rendu) -->
+ <script defer>
+  // ========= Estimation mensuelle — calcul & champs éditables =========
+  (function () {
+    const fmtEUR = (n) =>
+      new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR" })
+        .format(isFinite(n) ? n : 0);
+
+    // Champs pris en compte
+    const ids = [
+      "hPerDay", "daysPerWeek", "weeksPerMonth",
+      "cleaningPerWeek", "nightInterv", "hoursPerInterv",
+      "rateDay", "rateNight"
+    ];
+
+    // Récupération numérique robuste (gère virgules FR)
+    function getNum(id) {
+      const el = document.getElementById(id);
+      if (!el) return 0;
+      const v = parseFloat(String(el.value).replace(",", "."));
+      return isFinite(v) ? v : 0;
+    }
+
+    // Petites bornes de sécurité + pas
+    function sanitizeNumber(el, { min = 0, max = 24, step = 0.5 } = {}) {
+      if (!el) return;
+      const raw = parseFloat(String(el.value).replace(",", "."));
+      let n = isFinite(raw) ? raw : min;
+      if (n < min) n = min;
+      if (n > max) n = max;
+      // aligne sur le pas (facultatif, discret)
+      const k = Math.round(n / step) * step;
+      el.value = String(k);
+    }
+
+    function calc() {
+      // Sanitize champs clés avant calcul
+      sanitizeNumber(document.getElementById("hPerDay"),     { min: 0, max: 24, step: 0.5 });
+      sanitizeNumber(document.getElementById("daysPerWeek"), { min: 0, max: 7,  step: 1   });
+
+      // Entrées
+      const hPerDay         = getNum("hPerDay");         // ex: 5.5
+      const daysPerWeek     = getNum("daysPerWeek");     // ex: 6
+      const weeksPerMonth   = getNum("weeksPerMonth");   // ex: 4.33
+      const cleaningPerWeek = getNum("cleaningPerWeek"); // ex: 5
+      const nightInterv     = getNum("nightInterv");     // ex: 0..n
+      const hoursPerInterv  = getNum("hoursPerInterv");  // ex: 1
+      const rateDay         = getNum("rateDay");         // ex: 25
+      const rateNight       = getNum("rateNight");       // ex: 30
+
+      // Heures
+      const hoursDay   = hPerDay * daysPerWeek * weeksPerMonth;   // gestion
+      const hoursClean = cleaningPerWeek * weeksPerMonth;         // nettoyage (taux jour)
+      const hoursNight = nightInterv * hoursPerInterv;            // astreinte (taux nuit)
+
+      // Maj des heures de nuit auto (si champ présent)
+      const nightHoursEl = document.getElementById("nightHours");
+      if (nightHoursEl) nightHoursEl.value = (Math.round(hoursNight * 100) / 100).toString();
+
+      // Coûts
+      const costDay   = hoursDay   * rateDay;
+      const costClean = hoursClean * rateDay;
+      const costNight = hoursNight * rateNight;
+      const total     = costDay + costClean + costNight;
+
+      // Détail
+      const breakdownEl = document.getElementById("hoursBreakdown");
+      if (breakdownEl) {
+        breakdownEl.textContent =
+          `${hoursDay.toFixed(2)} h (gestion) + ` +
+          `${hoursClean.toFixed(2)} h (nettoyage) + ` +
+          `${hoursNight.toFixed(2)} h (astreinte) → ` +
+          `${fmtEUR(costDay)} + ${fmtEUR(costClean)} + ${fmtEUR(costNight)}`;
+      }
+
+      // Total
+      const totalEl = document.getElementById("total");
+      if (totalEl) totalEl.textContent = fmtEUR(total);
+    }
+
+    // Rendre hPerDay & daysPerWeek éditables (si HTML actuel les a en readonly)
+    function makeEditable() {
+      const editable = [
+        ["hPerDay",     { step: "0.5", min: "0", max: "24", inputmode: "decimal" }],
+        ["daysPerWeek", { step: "1",   min: "0", max: "7",  inputmode: "numeric" }]
+      ];
+      editable.forEach(([id, attrs]) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.removeAttribute("readonly");
+        el.setAttribute("aria-readonly", "false");
+        Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+      });
+    }
+
+    function init() {
+      // Assure l’édition des deux champs clés
+      makeEditable();
+
+      // Bind recalcul sur tous les champs variables
+      ids.forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener("input", calc);
+      });
+
+      // Premier calcul
+      calc();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+  })();
+</script>
+
+
+</head>
+
+<body>
+  <header role="banner" aria-label="En-tête FRIGO EST & proposition RMS">
+    <div class="wrap hero">
+      <div>
+        <div class="brand" aria-label="Identité FRIGO EST">
+          <!-- Logo SVG -->
+          <svg class="logo" viewBox="0 0 120 120" role="img" aria-label="Logo FRIGO EST (ours polaire)">
+            <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#76C7E8"/><stop offset="1" stop-color="#0B3A5A"/></linearGradient></defs>
+            <circle cx="60" cy="60" r="56" fill="url(#g)" />
+            <path d="M22 68c10-16 35-28 64-18 8 3 10 6 10 9 0 5-5 8-10 8-8 0-14-6-20-6-6 1-10 8-18 10-10 2-18-1-26-3z" fill="#ffffff"/>
+            <circle cx="90" cy="57" r="3" fill="#0B3A5A"/>
+          </svg>
+          <h1>FRIGO&nbsp;EST — Transport frigorifique express</h1>
+        </div>
+        <h2 class="hero-title">Proposition de gestion de dépôt — FRIGO&nbsp;EST</h2>
+        <p class="hero-sub">Offre de services par <strong>RMS (micro-entreprise)</strong> — solution orientée
+          exploitation &amp; maintenance, avec réactivité et traçabilité.</p>
+        <div class="cta-row">
+          <a href="#contact" class="btn primary" aria-label="Demander un échange au sujet de la proposition">Demander un échange</a>
+          <a href="#tarifs" class="btn alt" aria-label="Voir la tarification">Voir la tarification</a>
+        </div>
+        <div class="hero-badges" aria-label="Mots-clés de service">
+          <span class="badge">ouverture/fermeture</span>
+          <span class="badge">propreté véhicules</span>
+          <span class="badge">sanitaires & espaces verts</span>
+          <span class="badge">astreinte</span>
+          <span class="badge">déchets & consommables</span>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Présentation rapide RMS">
+        <h3 style="margin:0 0 6px">RMS, partenaire exploitation</h3>
+        <div class="keyline" aria-hidden="true"></div>
+        <p class="muted" style="margin:0">
+          RMS est une micro-entreprise opérant au quotidien pour des <strong>agences immobilières</strong> :
+          maintenance de biens, petites réparations, suivi, et interventions réactives. <br />
+          <strong>Expérience</strong> du terrain, <strong>fiabilité</strong> des passages, <strong>réactivité</strong>
+          et communication claire.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenu" class="wrap" role="main">
+    <!-- Périmètre de mission -->
+    <section aria-labelledby="perimetre">
+      <h2 id="perimetre" class="title">Périmètre de mission</h2>
+      <div class="grid cols-3">
+        <article class="card" aria-label="Gestion totale du dépôt">
+          <h3>Gestion totale du dépôt</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li>Ouverture quotidienne à <strong>5h</strong>, fermeture le soir</li>
+            <li>Présence et <strong>supervision</strong> des activités</li>
+          </ul>
+        </article>
+        <article class="card" aria-label="Propreté véhicules">
+          <h3>Propreté véhicules</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li>Nettoyage hebdomadaire (<strong>5&nbsp;h/semaine</strong>)</li>
+            <li>Créneaux flexibles sans gêner l’exploitation</li>
+          </ul>
+        </article>
+        <article class="card" aria-label="Propreté & maintenance des lieux">
+          <h3>Propreté & maintenance des lieux</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li>Zones de travail, <strong>sanitaires</strong>, <strong>espaces verts</strong></li>
+            <li>Petite maintenance préventive</li>
+          </ul>
+        </article>
+        <article class="card" aria-label="Gestion des déchets et consommables">
+          <h3>Déchets & consommables</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li>Suivi des <strong>ampoules</strong>, <strong>papier hygiénique</strong>, etc.</li>
+            <li>Tri et évacuation selon vos règles</li>
+          </ul>
+        </article>
+        <article class="card" aria-label="Réparations diverses">
+          <h3>Réparations diverses</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li>Petites réparations dans le dépôt</li>
+            <li>Signalement & traçabilité dans un journal simple</li>
+          </ul>
+        </article>
+        <article class="card" aria-label="Déplacement des véhicules">
+          <h3>Déplacement des véhicules</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li>Déplacements sur site si besoin</li>
+            <li>Coordination avec l’exploitation</li>
+          </ul>
+        </article>
+        <article class="card" aria-label="Astreinte de nuit et urgences">
+          <h3>Astreinte</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li>Interventions ponctuelles <strong>de nuit</strong></li>
+            <li>Déplacements urgents (sécurité / police)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Plages horaires -->
+    <section aria-labelledby="horaires">
+      <h2 id="horaires" class="title">Plages horaires proposées</h2>
+      <div class="band" role="region" aria-label="Créneaux de présence">
+        <div class="muted">
+          <strong>Lundi → Samedi</strong> : 5h–8h et 14h–16h, + 0,5&nbsp;h le soir pour la fermeture
+          (<strong>soit 5,5&nbsp;h/jour</strong>).
+        </div>
+        <div class="slots" aria-label="Résumé visuel des créneaux">
+          <span class="slot" aria-hidden="true">5h–8h</span>
+          <span class="slot" aria-hidden="true">14h–16h</span>
+          <span class="slot" aria-hidden="true">+0,5h fermeture</span>
+          <span class="slot" aria-hidden="true">Lun → Sam</span>
+        </div>
+        <div class="muted">Nettoyage véhicules : <strong>5&nbsp;h / semaine</strong> (créneaux flexibles).</div>
+      </div>
+    </section>
+
+    <!-- Tarification -->
+    <section id="tarifs" aria-labelledby="tarifs-title">
+      <h2 id="tarifs-title" class="title">Tarification</h2>
+      <div class="grid cols-2">
+        <div class="card" aria-label="Table des tarifs">
+          <table class="table" role="table" aria-describedby="tarif-legende">
+            <caption id="tarif-legende">Tarifs horaires RMS (micro-entreprise)</caption>
+            <thead>
+              <tr role="row">
+                <th scope="col">Prestation</th>
+                <th scope="col">Tarif</th>
+                <th scope="col">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Taux horaire maintenance (jour)</th>
+                <td><strong>25&nbsp;€ / h</strong></td>
+                <td>Gestion dépôt, propreté, petite maintenance, déplacements internes</td>
+              </tr>
+              <tr>
+                <th scope="row">Astreinte / déplacement de nuit</th>
+                <td><strong>30&nbsp;€ / h</strong></td>
+                <td><em>Obligatoire si sollicité</em></td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3">
+                  <span class="small">Micro-entreprise — <strong>TVA non applicable, art. 293&nbsp;B du CGI</strong>.</span>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <!-- Estimation mensuelle -->
+        <div class="estimation" role="region" aria-label="Forfait mensuel estimatif">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+            <h3 style="margin:0">Forfait mensuel estimatif</h3>
+            <span class="pill" aria-live="polite"><span aria-hidden="true">🧮</span> Calcul automatique</span>
+          </div>
+          <p class="muted" id="estim-note">
+            Basé sur <strong>5,5&nbsp;h/jour × 6&nbsp;j/sem × 4,33&nbsp;sem</strong> pour la gestion, +
+            <strong>5&nbsp;h/sem</strong> de nettoyage véhicules.
+            Ajustez ci-dessous le nombre d’<strong>interventions de nuit</strong> mensuelles.
+          </p>
+
+          <div class="row">
+            <div class="field">
+              <label for="hPerDay">Heures / jour (fixe)</label>
+              <input id="hPerDay" type="number" step="0.5" value="5.5" min="0" inputmode="decimal" readonly aria-readonly="true" />
+            </div>
+            <div class="field">
+              <label for="daysPerWeek">Jours / semaine (fixe)</label>
+              <input id="daysPerWeek" type="number" value="6" min="0" inputmode="numeric" readonly aria-readonly="true" />
+            </div>
+            <div class="field">
+              <label for="weeksPerMonth">Semaines / mois (fixe)</label>
+              <input id="weeksPerMonth" type="number" step="0.01" value="4.33" min="0" inputmode="decimal" readonly aria-readonly="true" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="cleaningPerWeek">Nettoyage véhicules (h/sem)</label>
+              <input id="cleaningPerWeek" type="number" step="0.5" value="5" min="0" inputmode="decimal" />
+            </div>
+            <div class="field">
+              <label for="nightInterv">Interventions de nuit / mois</label>
+              <input id="nightInterv" type="number" step="1" value="0" min="0" inputmode="numeric" />
+            </div>
+            <div class="field">
+              <label for="hoursPerInterv">Heures / intervention de nuit</label>
+              <input id="hoursPerInterv" type="number" step="0.5" value="1" min="0" inputmode="decimal" />
+            </div>
+          </div>
+
+          <div class="row" style="grid-template-columns:1.3fr 1fr 1fr">
+            <div class="field">
+              <label for="rateDay">Taux jour (€ / h)</label>
+              <input id="rateDay" type="number" step="0.01" value="25" min="0" inputmode="decimal" />
+            </div>
+            <div class="field">
+              <label for="rateNight">Taux nuit (€ / h)</label>
+              <input id="rateNight" type="number" step="0.01" value="30" min="0" inputmode="decimal" />
+            </div>
+            <div class="field">
+              <label for="nightHours">Heures nuit / mois (auto)</label>
+              <input id="nightHours" type="number" step="0.1" value="0" min="0" inputmode="decimal" readonly aria-readonly="true" />
+            </div>
+          </div>
+
+          <div class="grid">
+            <div class="card" style="border:1px dashed #cfe1ee; box-shadow:none">
+              <strong>Heures mensuelles (estimation)</strong>
+              <div class="live" id="hoursBreakdown" aria-live="polite">—</div>
+              <div class="note">La part <em>astreinte</em> n’est comptée que si des interventions sont prévues.</div>
+            </div>
+            <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+              <div>
+                <div class="muted">Total mensuel estimatif</div>
+                <div class="total" id="total" aria-live="polite">—</div>
+              </div>
+              <a href="#contact" class="btn primary" aria-label="Nous contacter pour valider un forfait">Valider un RDV</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engagements qualité & modalités -->
+    <section aria-labelledby="qualite">
+      <h2 id="qualite" class="title">Engagements qualité & modalités</h2>
+      <div class="grid cols-2">
+        <article class="card" aria-label="Engagements qualité">
+          <h3>Engagements qualité</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li><strong>Réactivité</strong> : disponibilité sur les créneaux clés</li>
+            <li><strong>Traçabilité</strong> : journal simple des interventions et passages</li>
+            <li><strong>Hygiène & chaîne du froid</strong> : respect strict des zones sensibles (sur périmètre maintenance, sans empiéter sur le transport)</li>
+          </ul>
+        </article>
+        <article class="card" aria-label="Modalités contractuelles">
+          <h3>Modalités</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li>Période d’essai : <strong>1&nbsp;mois</strong></li>
+            <li>Résiliation : <strong>préavis 30&nbsp;jours</strong></li>
+            <li>Assurance : <strong>RC&nbsp;Pro</strong> (références sur demande)</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="title">Contact & validation</h2>
+      <div class="contact">
+        <form aria-label="Formulaire de prise de contact (placeholders)">
+          <div class="grid cols-2">
+            <div><label for="cname">Nom / Société</label><input id="cname" type="text" placeholder="FRIGO EST"/></div>
+            <div><label for="cmail">Email</label><input id="cmail" type="email" placeholder="contact@exemple.fr"/></div>
+          </div>
+          <div class="grid cols-2">
+            <div><label for="ctel">Téléphone</label><input id="ctel" type="tel" placeholder="06 00 00 00 00"/></div>
+            <div><label for="cslot">Créneau souhaité</label><input id="cslot" type="text" placeholder="Lun–Ven, 14h–16h"/></div>
+          </div>
+          <div><label for="cmsg">Message</label><textarea id="cmsg" rows="4" placeholder="Dites-nous vos besoins précis…"></textarea></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <button type="button" class="btn primary" aria-label="Envoyer une demande de rendez-vous">Valider un RDV</button>
+            <span class="small muted">RMS (micro-entreprise) — réponse rapide sur vos créneaux.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="wrap foot">
+      <div style="display:flex;align-items:center;gap:10px">
+        <!-- Mini logo -->
+        <svg width="30" height="30" viewBox="0 0 120 120" aria-hidden="true">
+          <defs><linearGradient id="g2" x1="0" x2="1"><stop offset="0" stop-color="#76C7E8"/><stop offset="1" stop-color="#0B3A5A"/></linearGradient></defs>
+          <circle cx="60" cy="60" r="56" fill="url(#g2)"/>
+          <path d="M22 68c10-16 35-28 64-18 8 3 10 6 10 9 0 5-5 8-10 8-8 0-14-6-20-6-6 1-10 8-18 10-10 2-18-1-26-3z" fill="#ffffff"/>
+        </svg>
+        <div class="small">
+          Proposition rédigée et proposée par <strong>RMS</strong> (micro-entreprise).<br/>
+          <span class="muted">TVA non applicable, art. 293 B du CGI.</span>
+        </div>
+      </div>
+      <div class="keywords" aria-label="Mots-clés visibles">
+        <span class="tag" style="border:1px solid #cfe1ee;padding:6px 10px;border-radius:999px;background:#fff;font-weight:700;font-size:13px">ouverture/fermeture</span>
+        <span class="tag" style="border:1px solid #cfe1ee;padding:6px 10px;border-radius:999px;background:#fff;font-weight:700;font-size:13px">propreté véhicules</span>
+        <span class="tag" style="border:1px solid #cfe1ee;padding:6px 10px;border-radius:999px;background:#fff;font-weight:700;font-size:13px">sanitaires & espaces verts</span>
+        <span class="tag" style="border:1px solid #cfe1ee;padding:6px 10px;border-radius:999px;background:#fff;font-weight:700;font-size:13px">astreinte</span>
+        <span class="tag" style="border:1px solid #cfe1ee;padding:6px 10px;border-radius:999px;background:#fff;font-weight:700;font-size:13px">déchets & consommables</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

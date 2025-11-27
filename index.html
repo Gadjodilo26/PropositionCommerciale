@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proposition de collaboration — Nouveau dépôt FRIGO EST Nancy | RMS</title>
+  <meta name="description" content="Proposition B2B pour le nouveau dépôt FRIGO EST Nancy : réfection des locaux, maintenance régulière, services véhicules. Offre complète RMS (micro-entreprise), claire et suivie." />
+  <style>
+    :root{
+      --blue-deep:#0B3A5A; --blue-ice:#76C7E8; --white:#fff; --text:#1f2f3f;
+      --muted:#f4f8fc; --border:#d9e7f3; --focus:#0b73ff;
+      --shadow:0 10px 30px rgba(11,58,90,.18);
+      --radius:14px; --radius-sm:10px; --radius-lg:20px;
+      --maxw:1120px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text);
+      background:linear-gradient(180deg,#f8fbff 0%,#f2f7fc 100%);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+    }
+    img,svg{max-width:100%;display:block}
+    a{color:var(--blue-deep);text-decoration:none}
+    a:focus,button:focus,input:focus,select:focus,textarea:focus{outline:3px solid var(--focus);outline-offset:2px}
+    .wrap{max-width:var(--maxw);margin-inline:auto;padding:0 20px}
+    .grid{display:grid;gap:18px}
+    @media (min-width:768px){
+      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+      .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    }
+
+    header{
+      background:
+        radial-gradient(1200px 620px at 90% -120%, rgba(255,255,255,.25), transparent 70%),
+        linear-gradient(135deg, var(--blue-deep) 0%, #0E4A73 38%, var(--blue-ice) 100%);
+      color:var(--white); position:relative; overflow:hidden;
+    }
+    .hero{display:grid;gap:24px;align-items:center;padding:44px 0 64px}
+    @media (min-width:768px){.hero{grid-template-columns:1fr 1.05fr;padding:80px 0 96px}}
+    .brand{display:flex;align-items:center;gap:14px;padding:12px 0 6px;flex-wrap:wrap}
+    .brand img{width:62px;height:62px;object-fit:contain;border-radius:12px;background:rgba(255,255,255,.12);padding:6px;filter:drop-shadow(0 6px 18px rgba(0,0,0,.28))}
+    .brand h1{font-size:14px;letter-spacing:.12em;text-transform:uppercase;margin:0;opacity:.9}
+    .hero-title{margin:8px 0 10px;font-weight:750;line-height:1.12;font-size:clamp(28px,5vw,44px)}
+    .hero-sub{margin:0 0 18px;font-size:clamp(16px,2.6vw,19px);opacity:.95}
+    .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .btn{background:var(--white);color:var(--blue-deep);border:none;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer;box-shadow:var(--shadow);transition:transform .12s ease,box-shadow .2s ease,background .2s ease,color .2s ease}
+    .btn:hover{transform:translateY(-1px);box-shadow:0 12px 34px rgba(11,58,90,.28)}
+    .btn.primary{background:linear-gradient(180deg,#ffffff,#e8f6ff);color:#06324e}
+    .btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.6);box-shadow:none}
+    .hero-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.35);backdrop-filter:saturate(150%) blur(6px);padding:18px;border-radius:var(--radius)}
+    .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+    .badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);color:#fff;padding:6px 10px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap}
+
+    main section{padding:34px 0}
+    section .title{font-size:22px;margin:0 0 12px;line-height:1.25;color:#0a2b44}
+    .muted{color:#3b5164}
+    .card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .card h3{margin:4px 0 8px;font-size:18px}
+    .keyline{height:4px;width:44px;background:linear-gradient(90deg,var(--blue-ice),#9ad9f2);border-radius:999px;margin:8px 0 14px}
+    ul.clean{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+    ul.clean li{padding-left:28px;position:relative}
+    ul.clean li::before{content:"";position:absolute;left:0;top:.35em;width:18px;height:18px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#fff 0 30%,var(--blue-ice) 31% 100%);outline:2px solid #bfe7f7}
+
+    .band{background:linear-gradient(90deg,#e9f6fe,#f5fbff);border:1px solid var(--border);border-left:6px solid var(--blue-ice);border-radius:var(--radius);padding:16px;display:grid;gap:10px;align-items:center}
+    .slots{display:flex;flex-wrap:wrap;gap:10px}
+    .slot{background:#fff;border:1px dashed #b8d7eb;padding:8px 10px;border-radius:999px;font-weight:700}
+
+    .table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .table caption{caption-side:top;text-align:left;padding:12px 14px;font-weight:700;color:#0a2b44}
+    .table th,.table td{padding:14px;text-align:left}
+    .table thead th{background:linear-gradient(180deg,#f7fbff,#eef6fc);border-bottom:1px solid var(--border);font-size:14px;letter-spacing:.02em;text-transform:uppercase}
+    .table tbody tr:not(:last-child) td{border-bottom:1px solid #edf3f8}
+    .table tfoot td{background:#fbfeff;font-weight:700}
+
+    .estimation{display:grid;gap:16px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .estimation .row{display:grid;gap:10px}
+    @media (min-width:768px){.estimation .row{grid-template-columns:repeat(3,1fr)}}
+    .field{display:grid;gap:6px}
+    .field label{font-weight:600}
+    .field input[type="number"]{appearance:textfield;width:100%;padding:10px 12px;border:1px solid #cfe1ee;border-radius:10px;background:#fbfeff}
+    .pill{background:#0b3a5a;color:#fff;font-weight:800;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px}
+    .note{font-size:13px;color:#466178}
+    .live{margin-top:6px;font-weight:700}
+    .total{font-size:clamp(22px,3.6vw,28px);font-weight:800;color:#073b5f}
+
+    .contact{background:radial-gradient(900px 400px at 100% 0%,#eaf7ff,transparent 60%),#f7fbff;border:1px solid var(--border);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .contact form{display:grid;gap:12px}
+    .contact input,.contact textarea{width:100%;padding:12px 14px;border:1px solid #cfe1ee;border-radius:10px;background:#fff}
+    .contact .checks{display:grid;gap:8px}
+    .small{font-size:13px;opacity:.9}
+
+    footer{padding:26px 0 50px;color:#345068}
+    .foot{border-top:1px solid var(--border);padding-top:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+
+    @media print{
+      @page{margin:16mm}
+      body{background:#fff}
+      header{background:#fff;color:#000;border-bottom:2px solid #000}
+      .hero-card,.btn,.cta-row,.hero-badges{display:none!important}
+      a::after{content:" (" attr(href) ")";font-size:12px}
+      .card,.band,.table,.estimation,.contact{box-shadow:none;border-color:#000}
+      .foot{border-top-color:#000}
+    }
+  </style>
+  <script defer>
+  // Estimation mensuelle adaptée maintenance Nancy + options véhicules
+  (function(){
+    const fmtEUR = (n) => new Intl.NumberFormat("fr-FR", { style:"currency", currency:"EUR" }).format(isFinite(n)?n:0);
+    const ids = ["hPerDay","daysPerWeek","weeksPerMonth","rateDay","optionFleetWeekly","transportTrips"];
+    const TRANSPORT_RATE = 40; // € par déplacement (forfait)
+
+    function getNum(id){
+      const el=document.getElementById(id);
+      if(!el) return 0;
+      const v=parseFloat(String(el.value).replace(",", "."));
+      return isFinite(v)?v:0;
+    }
+
+    function sanitizeNumber(el,{min=0,max=24,step=0.5}={}){
+      if(!el) return;
+      const raw=parseFloat(String(el.value).replace(",", "."));
+      let n=isFinite(raw)?raw:min;
+      if(n<min) n=min;
+      if(n>max) n=max;
+      const k=Math.round(n/step)*step;
+      el.value=String(k);
+    }
+
+    function calc(){
+      sanitizeNumber(document.getElementById("hPerDay"),{min:0,max:24,step:0.5});
+      sanitizeNumber(document.getElementById("daysPerWeek"),{min:0,max:7,step:1});
+
+      const hPerDay=getNum("hPerDay");
+      const daysPerWeek=getNum("daysPerWeek");
+      const weeksPerMonth=getNum("weeksPerMonth");
+      const rateDay=getNum("rateDay");
+
+      const hoursDay=hPerDay*daysPerWeek*weeksPerMonth; // inclut ménage et maintenance
+      const hoursClean=0;
+      const hoursNight=0;
+
+      const optFleetChecked=document.getElementById("optFleet")?.checked;
+      const optTransportChecked=document.getElementById("optTransport")?.checked;
+      const weeklyFleet=optFleetChecked ? getNum("optionFleetWeekly") : 0;
+      const transportTrips=optTransportChecked ? getNum("transportTrips") : 0;
+      const optionFleet=weeklyFleet*weeksPerMonth; // 30 €/sem par défaut
+      const optionTransport=transportTrips*TRANSPORT_RATE; // 40 € / déplacement
+      const optionsTotal=optionFleet+optionTransport;
+
+      const costDay=hoursDay*rateDay;
+      const costClean=0;
+      const costNight=0;
+      const total=costDay+optionsTotal;
+
+      const breakdownEl=document.getElementById("hoursBreakdown");
+      if(breakdownEl){
+        breakdownEl.textContent=
+          `${hoursDay.toFixed(2)} h (présence incluant ménage) → ${fmtEUR(costDay)}`+
+          (optionsTotal>0 ? ` + options ${fmtEUR(optionsTotal)}` : "");
+      }
+
+      const optionsLine=document.getElementById("optionsTotal");
+      if(optionsLine){
+        optionsLine.textContent=optionsTotal>0 ? fmtEUR(optionsTotal) : "—";
+      }
+
+      const totalEl=document.getElementById("total");
+      if(totalEl) totalEl.textContent=fmtEUR(total);
+
+      window.currentEstimate={
+        hoursDay,hoursClean,hoursNight,cleaningPerWeek:0,rateDay,
+        options:{fleet:!!optFleetChecked,transport:!!optTransportChecked,cleaning:false},
+        optionsCosts:{fleet:optionFleet,transport:optionTransport,cleaning:null,transportTrips},
+        optionsTotal,total
+      };
+    }
+
+    function bind(){
+      ids.forEach((id)=>{
+        const el=document.getElementById(id);
+        if(el) el.addEventListener("input", calc);
+      });
+      ["optFleet","optTransport"].forEach((id)=>{
+        const el=document.getElementById(id);
+        if(el) el.addEventListener("change", calc);
+      });
+      calc();
+    }
+
+    if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",bind);}else{bind();}
+  })();
+
+  // Construction mailto / sms avec valeurs du simulateur et du formulaire
+  (function(){
+    function qs(id){return document.getElementById(id);}
+    function encode(str){return encodeURIComponent(str||"");}
+    function boolLabel(flag){return flag?"oui":"non";}
+
+    function buildMessage(){
+      const est=window.currentEstimate||{};
+      const totalHours=((est.hoursDay||0)+(est.hoursClean||0)+(est.hoursNight||0));
+      const options=est.options||{};
+      const optionsCosts=est.optionsCosts||{};
+      const name=qs("contactName")?.value||"";
+      const role=qs("contactRole")?.value||"";
+      const note=qs("contactNote")?.value||"";
+      const baseCleaning=1;
+      const c1=qs("chkBase")?.checked;
+      const c2=qs("chkFrequency")?.checked;
+      const c3=qs("chkVehicles")?.checked;
+
+      const body=[
+        "Objet : Proposition FRIGO-EST Nancy — Maintenance & services",
+        "",
+        "Bonjour,",
+        "",
+        "Voici les paramètres de la proposition pour le dépôt de Nancy :",
+        "",
+        `- Base maintenance : 1,5 h par semaine incluant le ménage`,
+        `- Heures mensuelles (présence incluant ménage) : ${totalHours.toFixed(2)} h`,
+        `- Total mensuel estimé : ${new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(est.total||0)}`,
+        "- Options activées :",
+        `  - Suivi des véhicules : ${boolLabel(options.fleet)} ${optionsCosts.fleet?`(${optionsCosts.fleet.toFixed(2)} € / mois)`: ""}`,
+        `  - Déplacements atelier / concessions : ${boolLabel(options.transport)} ${optionsCosts.transport?`(${optionsCosts.transport.toFixed(2)} € / mois pour ${optionsCosts.transportTrips||0} déplacement(s))`: ""}`,
+        "  - Nettoyage véhicules : à déterminer par camion (non chiffré ici)",
+        "",
+        "Coordonnées :",
+        `- Nom : ${name||"—"}`,
+        `- Fonction : ${role||"—"}`,
+        "",
+        "Préférences cochées :",
+        `- Valider la base 1,5 h/sem incluant le ménage : ${boolLabel(!!c1)}`,
+        `- Discuter d'une fréquence différente : ${boolLabel(!!c2)}`,
+        `- Intérêt pour services véhicules optionnels : ${boolLabel(!!c3)}`,
+        "",
+        "Commentaire :",
+        note||"—",
+        "",
+        "Merci de me recontacter pour finaliser la collaboration."
+      ].join("\\n");
+
+      const subject="Proposition FRIGO-EST Nancy — Maintenance & services";
+      const mailto=`mailto:rms.dev54@gmail.com?subject=${encode(subject)}&body=${encode(body)}`;
+      const smsShort=`FRIGO-EST Nancy | Estim ${new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR"}).format(est.total||0)} | Base 1,5h/sem (incl. ménage) | Opt: suivi vehicules ${boolLabel(options.fleet)}, deplacements ${boolLabel(options.transport)} | Nom ${name||"?"}`;
+      const sms=`sms:0649856716?body=${encode(smsShort)}`;
+      return {mailto,sms};
+    }
+
+    function bindContact(){
+      const sendMail=qs("sendEmail");
+      const sendSms=qs("sendSms");
+      if(sendMail){
+        sendMail.addEventListener("click",()=>{
+          const {mailto}=buildMessage();
+          window.location.href=mailto;
+        });
+      }
+      if(sendSms){
+        sendSms.addEventListener("click",()=>{
+          const {sms}=buildMessage();
+          window.location.href=sms;
+        });
+      }
+    }
+
+    if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",bindContact);}else{bindContact();}
+  })();
+  </script>
+</head>
+<body>
+  <header role="banner">
+    <div class="wrap hero">
+      <div>
+        <div class="brand" aria-label="Identité FRIGO EST & RMS">
+          <img src="logoFE.png" alt="Logo FRIGO EST">
+          <img src="logoOfficielRMS.svg" alt="Logo RMS Réalisations Multi Services">
+          <h1>Proposition de collaboration — nouveau dépôt FRIGO-EST Nancy</h1>
+        </div>
+        <h2 class="hero-title">Un interlocuteur unique pour la remise en état, le ménage régulier et la petite maintenance</h2>
+          <p class="hero-sub">RMS (micro-entreprise) accompagne l’ouverture du site de Nancy : réfection des lieux avant intégration, entretien hebdomadaire léger, suivi des interventions, services véhicules à la demande et rapport dynamique consultable par l’exploitation.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="Devis n°1 — Réfection des locaux avant intégration _ FRIGO-EST Nancy.pdf" target="_blank" rel="noreferrer noopener" aria-label="Voir le devis de réfection des locaux">Voir le devis réfection des locaux</a>
+          <a class="btn alt" href="Devis n°2 — Maintenance régulière _ FRIGO-EST Nancy.pdf" target="_blank" rel="noreferrer noopener" aria-label="Voir le devis maintenance régulière">Voir le devis maintenance régulière</a>
+          <span class="badge" aria-label="Services véhicules en option">Ajouter les services véhicules (option)</span>
+        </div>
+        <div class="hero-badges" aria-label="Mots-clés de service">
+          <span class="badge">réfection des locaux</span>
+          <span class="badge">ménage hebdomadaire</span>
+          <span class="badge">maintenance légère</span>
+          <span class="badge">services véhicules</span>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Présentation RMS">
+        <h3 style="margin:0 0 6px">RMS, partenaire unique</h3>
+        <div class="keyline" aria-hidden="true"></div>
+        <p class="muted" style="margin:0">
+          Micro-entreprise multi-services : réactivité terrain, suivi clair des interventions, expérience en gestion de site et en prestations de ménage. Objectif : rendre le dépôt opérationnel dès l’ouverture puis maintenir un niveau d’hygiène constant.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" role="main">
+    <section aria-labelledby="contexte">
+      <h2 id="contexte" class="title">Contexte & objectifs</h2>
+      <article class="card">
+        <div class="keyline" aria-hidden="true"></div>
+          <p class="muted" style="margin:0">
+          Ouverture du nouveau dépôt FRIGO-EST à <strong>Nancy</strong> : besoin d’un site propre, opérationnel et suivi dès l’intégration. RMS se positionne comme interlocuteur unique pour la remise en état initiale, le ménage régulier, la petite maintenance et, en option, la gestion du parc de véhicules. Un <strong>rapport dynamique</strong> sera disponible sur un site sécurisé (droits d’accès dédiés) pour le suivi régulier.
+        </p>
+      </article>
+    </section>
+
+    <section aria-labelledby="devis1">
+      <h2 id="devis1" class="title">Devis n°1 — Réfection des lieux avant intégration des locaux</h2>
+      <article class="card">
+        <div class="keyline" aria-hidden="true"></div>
+        <ul class="clean">
+          <li>Nettoyage complet de <strong>tous les vitrages</strong> (intérieur / extérieur selon accessibilité).</li>
+          <li>Nettoyage des <strong>sols</strong> (bureaux, zones de circulation, locaux sociaux…).</li>
+          <li>Nettoyage des <strong>sanitaires</strong> (WC, lavabos, douches si présentes).</li>
+          <li><strong>Remplacement du store manquant</strong> (optionnel, détaillé dans le devis sur demande).</li>
+          <li><strong>Constitution d’un stock de dalles plafond 60×60</strong> pour remplacer les dalles détériorées (optionnel).</li>
+          <li><strong>Rafraîchissement en blanc des murs abîmés</strong> — partie optionnelle, <strong>devis complémentaire sur demande</strong>.</li>
+        </ul>
+        <div class="cta-row" style="margin-top:14px">
+          <a class="btn primary" href="Devis n°1 — Réfection des locaux avant intégration _ FRIGO-EST Nancy.pdf" target="_blank" rel="noreferrer noopener" aria-label="Consulter le devis réfection des locaux">Consulter le devis n°1 (réfection des locaux)</a>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="devis2">
+      <h2 id="devis2" class="title">Devis n°2 — Maintenance régulière du dépôt de Nancy</h2>
+      <div class="grid cols-2">
+        <article class="card" aria-label="Périmètre maintenance">
+          <h3>Ménage régulier</h3><div class="keyline" aria-hidden="true"></div>
+          <p class="muted">Nettoyage périodique des bureaux, sols, sanitaires, points de contact. Base proposée : <strong>1,5 h par semaine incluant le ménage</strong>, ajustable si besoin.</p>
+          <h3>Maintenance minimale des locaux</h3><div class="keyline" aria-hidden="true"></div>
+          <p class="muted">Petites réparations (quincaillerie, éléments électriques simples, remplacement ponctuel de dalles). Les interventions lourdes sont signalées pour passage d’un prestataire spécialisé.</p>
+          <p class="muted"><strong>Rapport dynamique</strong> consultable à tout moment sur site dédié sécurisé (droits d’accès pour l’exploitation) pour le suivi régulier.</p>
+          <p class="note">Le simulateur ci-contre calcule la base 1,5&nbsp;h/sem (maintenance + ménage), avec options activables (services véhicules).</p>
+        </article>
+        <div class="estimation" role="region" aria-label="Estimation mensuelle maintenance">
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <h3 style="margin:0">Estimation mensuelle — maintenance et ménage</h3>
+          <span class="pill" aria-live="polite"><span aria-hidden="true">🧮</span> Base 1,5 h/sem (incl. ménage)</span>
+        </div>
+          <p class="muted">Base : 1,5 h / semaine incluant le ménage (modulable). Les options véhicules s’ajoutent au total mensuel.</p>
+
+          <div class="row">
+            <div class="field">
+              <label for="hPerDay">Heures de présence RMS / jour (base : 1,5 h/sem)</label>
+              <input id="hPerDay" type="number" step="0.5" value="1.5" min="0" inputmode="decimal" />
+            </div>
+            <div class="field">
+              <label for="daysPerWeek">Jours d’intervention / semaine</label>
+              <input id="daysPerWeek" type="number" step="1" value="1" min="0" inputmode="numeric" />
+            </div>
+            <div class="field">
+              <label for="weeksPerMonth">Semaines / mois (référence)</label>
+              <input id="weeksPerMonth" type="number" step="0.01" value="4.33" min="0" inputmode="decimal" />
+            </div>
+          </div>
+
+          <div class="row" style="grid-template-columns:1.3fr 1fr">
+            <div class="field">
+              <label for="rateDay">Taux jour (€ / h)</label>
+              <input id="rateDay" type="number" step="0.01" value="25" min="0" inputmode="decimal" />
+            </div>
+          </div>
+
+            <div class="card" style="border:1px dashed #cfe1ee; box-shadow:none">
+              <strong>Options services véhicules (ajoutées au total)</strong>
+              <div class="grid" style="margin-top:10px">
+                <label class="field" style="display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center">
+                  <input id="optFleet" type="checkbox" aria-label="Activer suivi régulier des véhicules">
+                    <div>
+                      <div><strong>Suivi régulier des véhicules</strong></div>
+                    <div class="note">30 € / semaine pour 2 vérifications (mercredi & vendredi).</div>
+                    <input id="optionFleetWeekly" type="number" step="1" value="30" min="0" inputmode="decimal" aria-label="Tarif hebdomadaire suivi véhicules" />
+                  </div>
+                </label>
+                <label class="field" style="display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center">
+                  <input id="optTransport" type="checkbox" aria-label="Activer déplacement des véhicules">
+                  <div>
+                    <div><strong>Déplacements véhicules (atelier Marly / concessions)</strong></div>
+                    <div class="note">Forfait 40 € par déplacement (quel que soit le temps, réalisé sur jours de repos).</div>
+                    <input id="transportTrips" type="number" step="1" value="0" min="0" inputmode="numeric" aria-label="Nombre de déplacements véhicules par mois" />
+                  </div>
+                </label>
+                <div class="field" style="display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center">
+                  <input type="checkbox" checked disabled aria-hidden="true" style="opacity:.4">
+                  <div>
+                    <div><strong>Nettoyage véhicules intérieur / extérieur</strong></div>
+                    <div class="note">Prix à déterminer / camion (indication, non compté dans le total).</div>
+                    <input id="optionCleaningInfo" type="text" placeholder="Ex : à définir selon parc" aria-label="Information nettoyage véhicules" />
+                  </div>
+                </div>
+              </div>
+            <div class="note">Le suivi véhicules est valorisé en hebdomadaire (30 €/sem), les déplacements sont facturés 40 € par trajet, le nettoyage véhicules reste à chiffrer hors simulateur.</div>
+          </div>
+
+          <div class="grid">
+            <div class="card" style="border:1px dashed #cfe1ee; box-shadow:none">
+              <strong>Heures mensuelles (estimation)</strong>
+              <div class="live" id="hoursBreakdown" aria-live="polite">—</div>
+              <div class="note">La base correspond à 1,5 h/semaine incluant le ménage (modifiable).</div>
+              <div class="note">Options ajoutées : <span id="optionsTotal">—</span></div>
+            </div>
+            <div class="card" style="display:flex;align-items:center;justify-content:space-between;gap:10px">
+              <div>
+                <div class="muted">Total mensuel estimatif</div>
+                <div class="total" id="total" aria-live="polite">—</div>
+              </div>
+              <a href="Devis n°2 — Maintenance régulière _ FRIGO-EST Nancy.pdf" target="_blank" rel="noreferrer noopener" class="btn primary" aria-label="Voir le devis maintenance">Voir le devis maintenance</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="options-vehicules">
+      <h2 id="options-vehicules" class="title">Option — Services complémentaires pour le parc de véhicules</h2>
+      <article class="card">
+        <div class="keyline" aria-hidden="true"></div>
+        <ul class="clean">
+          <li><strong>Suivi régulier</strong> des véhicules (état, km, voyants, travaux à prévoir).</li>
+          <li><strong>Déplacements</strong> pour entretien / réparation (atelier de Marly, concessions, groupe froid).</li>
+          <li><strong>Nettoyage intérieur / extérieur</strong> des véhicules à la demande.</li>
+        </ul>
+        <p class="muted">Services optionnels intégrables dans le simulateur ci-dessus. Un devis complémentaire viendra s’ajouter au devis de base selon les options retenues.</p>
+      </article>
+    </section>
+
+    <!--
+    <section aria-labelledby="contrat">
+      <h2 id="contrat" class="title">Passer sous contrat</h2>
+      <article class="card">
+        <div class="keyline" aria-hidden="true"></div>
+        <p class="muted">Objectif : sécuriser la collaboration sur la durée (maintenance, options véhicules). Voici les conditions clés (obligations, assurances, RGPD, résiliation) et un exemple de contrat que nous remettrons en PDF pour signature.</p>
+        <div class="cta-row" style="margin-top:8px;gap:10px;flex-wrap:wrap">
+          <a class="btn primary" href="contrat-conditions.html" aria-label="Consulter les conditions de référence">Voir les conditions de référence</a>
+          <a class="btn" href="contrat-modele.pdf" aria-label="Télécharger un exemple de contrat (PDF)">Exemple de contrat (PDF)</a>
+          <span class="small muted">Le contrat final sera personnalisé (fréquences, options, tarifs validés).</span>
+        </div>
+      </article>
+    </section>
+    -->
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="title">Contact / validation</h2>
+      <div class="contact">
+        <form aria-label="Formulaire de contact RMS">
+          <div class="grid cols-2">
+            <div><label for="contactName">Nom / Prénom</label><input id="contactName" type="text" placeholder="Votre nom" /></div>
+            <div><label for="contactRole">Fonction</label><input id="contactRole" type="text" placeholder="Exploitant, Responsable dépôt…" /></div>
+          </div>
+          <div class="checks">
+            <label><input type="checkbox" id="chkBase" /> Je souhaite valider la base 1,5 h/sem incluant le ménage</label>
+            <label><input type="checkbox" id="chkFrequency" /> Je souhaite discuter d’une fréquence différente</label>
+            <label><input type="checkbox" id="chkVehicles" /> Je suis intéressé par les services véhicules optionnels</label>
+          </div>
+          <div><label for="contactNote">Commentaire</label><textarea id="contactNote" rows="4" placeholder="Précisez vos attentes ou créneaux d’intervention…"></textarea></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+            <button type="button" class="btn primary" id="sendEmail">Envoyer par e-mail</button>
+            <button type="button" class="btn" id="sendSms">Envoyer par SMS</button>
+            <span class="small muted">Email : rms.dev54@gmail.com — SMS : 0649856716</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section aria-labelledby="engagements">
+      <h2 id="engagements" class="title">Engagements & modalités</h2>
+      <div class="grid cols-2">
+        <article class="card" aria-label="Engagements qualité">
+          <h3>Engagements qualité</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li><strong>Réactivité</strong> et disponibilité sur les créneaux clés du dépôt.</li>
+            <li><strong>Traçabilité</strong> : suivi des visites et relevé des interventions.</li>
+            <li><strong>Rapport dynamique</strong> consultable par l’exploitation sur site sécurisé avec droits d’accès.</li>
+            <li><strong>Ajustement</strong> possible de la fréquence après quelques semaines d’exploitation.</li>
+          </ul>
+        </article>
+        <article class="card" aria-label="Modalités contractuelles">
+          <h3>Modalités</h3><div class="keyline" aria-hidden="true"></div>
+          <ul class="clean">
+            <li>Statut : <strong>micro-entreprise</strong>.</li>
+            <li><strong>TVA non applicable, art. 293 B du CGI</strong>.</li>
+            <li>Période d’essai possible, avec ajustement progressif.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="wrap foot">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="logoOfficielRMS.svg" alt="Logo RMS" style="width:42px;height:42px">
+        <div class="small">
+          Proposition rédigée et proposée par <strong>RMS</strong> (micro-entreprise).<br/>
+          <span class="muted">TVA non applicable, art. 293 B du CGI.</span>
+        </div>
+      </div>
+      <div class="keywords" aria-label="Mots-clés visibles" style="display:flex;flex-wrap:wrap;gap:8px">
+        <span class="tag" style="border:1px solid #cfe1ee;padding:6px 10px;border-radius:999px;background:#fff;font-weight:700;font-size:13px">réfection</span>
+        <span class="tag" style="border:1px solid #cfe1ee;padding:6px 10px;border-radius:999px;background:#fff;font-weight:700;font-size:13px">ménage hebdo</span>
+        <span class="tag" style="border:1px solid #cfe1ee;padding:6px 10px;border-radius:999px;background:#fff;font-weight:700;font-size:13px">maintenance</span>
+        <span class="tag" style="border:1px solid #cfe1ee;padding:6px 10px;border-radius:999px;background:#fff;font-weight:700;font-size:13px">services véhicules</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
